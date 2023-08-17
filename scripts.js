@@ -23,15 +23,15 @@ const rent = {
     smallRoom: 200,
     largeRoom: 300,
     smallApartment: 400,
-    largeApartment: 800,
+    'large-apartment': 800,
     smallHouse: 1200,
     largeHouse: 2400,
 }
 
 // You can change below however you want
 
-const taxAsDecimal = (parseFloat(tax[913])) / 100
-const startingAfterTax = salary *((parseInt(1)) - taxAsDecimal)
-const type = `${size} ${lodging}`
-const balance = startingAfterTax - expenses.transport - expenses.food - rent.largeApartment 
+const taxAsDecimal = parseFloat(tax[913]) / 100
+const startingAfterTax = salary *(1 - taxAsDecimal)
+const type = `${size}-${lodging}`
+const balance = startingAfterTax - expenses.transport - expenses.food - rent[type]
 console.log(balance.toFixed(2))
